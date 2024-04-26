@@ -1,19 +1,18 @@
 /* --- IMPORTS --- */
-
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 /* --- VARIABLES --- */
 :root {
 
     /* COLORS */
-    --primaryColor: gray;
-    --secondaryColor: lightGray;
-    --accentColor: lightSlateGray;
-    --interactableColor: darkSlateGrey;
-    --hoverButtonColor: dimGray;
+    --primaryColor: #F4BE66;
+    --secondaryColor: #89B894;
+    --accentColor: #D67C61;
+    --hoverButtonColor: #b96951;
     --disableButtonColor: silver;
-    --backgroundColor: whiteSmoke;
-    --baseTextDarkColor: black;
+    --backgroundColor: #F9F4E7;
+    --baseTextDarkColor: #050316;
 
 
 
@@ -29,7 +28,7 @@
     --xLargeSpacing: 50px;
 
     /* DETAILS */
-    --borderRadius: 3px;
+    --borderRadius: 10px;
     --round: 50%;
     --shadow: 3px 3px 8px gray;
 }
@@ -45,15 +44,22 @@
     grid-column: 1/-1;
 }
 
+
 /* --- GENERALS --- */
+header {
+    background-color: var(--backgroundColor);
+    height: auto;
+    padding: var(--standardSpacing);
+}
 
 body {
     margin: 0;
+    background-color: var(--backgroundColor);
 }
 
 main {
     display: grid;
-    grid-template-columns: var(--standardSpacing) repeat(4, 1fr) var(--standardSpacing);
+    grid-template-columns: 5% repeat(12, 1fr) 5%;
 }
 
 section {
@@ -62,9 +68,30 @@ section {
 
 article {}
 
+footer {
+    height: 40vh;
+    border-top: 2px solid var(--secondaryColor);
+    margin-top: var(--xLargeSpacing);
+}
+
 a {}
 
 i {}
+
+.nyesteOpskrifterContainer,
+.udvalgteOpskrifterContainer,
+.nyesteArtiklerContainer {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.opskriftListeContainer {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
 
 /* --- TEXT --- */
 h1,
@@ -73,36 +100,202 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+a {
     grid-column: 2 / -2;
+    font-family: "Open Sans", sans-serif;
 }
 
 h1 {
+    font-family: "Dancing Script", cursive;
     font-size: 1.8rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: var(--mediumSpacing) 0;
     text-align: center;
-    color: var(--primaryColor);
+    color: var(--baseTextDarkColor);
+    font-weight: 600;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-family: "Dancing Script", cursive;
     color: var(--accentColor);
-    font-style: italic;
-    margin: 0px;
-    color: var(--primaryColor);
+    margin: var(--xLargeSpacing) 0;
+    color: var(--baseTextDarkColor);
+    text-align: center;
+    font-weight: 400;
+    overflow: hidden;
 }
+
+/* TILFØJ LINJER PÅ BEGGE SIDER AF EN OVERSKRIFT */
+.lineDetail::before,
+.lineDetail::after {
+    background-color: var(--secondaryColor);
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.lineDetail::before {
+    right: 3rem;
+    margin-left: -50%;
+}
+
+.lineDetail::after {
+    left: 3rem;
+    margin-right: -50%;
+}
+
+
 
 h3 {
     font-size: 1rem;
     margin: 0px;
-    color: var(--secondaryColor);
+    color: var(--baseTextDarkColor);
+    font-weight: 600;
 }
+
 
 p {
     margin: 0 0 var(--smallSpacing) 0;
     color: var(--baseTextDarkColor);
 }
+
+img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    gap: var(--xLargeSpacing);
+    list-style: none;
+    margin: 0;
+}
+
+nav .logo {
+    width: 60px;
+    padding: 0;
+}
+
+nav a {
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: var(--smallSpacing);
+    display: inline-flex;
+    color: var(--baseTextDarkColor);
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+nav a:after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: var(--accentColor);
+    position: absolute;
+    bottom: 0;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    height: 50px;
+    width: 50px;
+    font-size: 1.8rem;
+    color: var(--accent Color);
+}
+
+nav button:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+nav .dropdown {
+    position: absolute;
+    flex-direction: column;
+    background-color: #F4BE66;
+    width: 200px;
+    padding: var(--standardSpacing) var(--xLargeSpacing);
+    gap: var(--standardSpacing);
+    display: none;
+}
+
+nav .dropdown a {
+    font-size: 1.2rem;
+}
+
+.opskriftDropdown:hover .dropdown {
+    display: flex;
+}
+
+/* --- HERO --- */
+
+.hero video,
+.hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 80vh;
+}
+
+.hero h1 {
+    font-size: 5rem;
+
+}
+
+.hero h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: var(--smallSpacing) 0;
+}
+
+.hero .textBackground {
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    min-width: 800px;
+    min-height: 400px;
+
+    background: radial-gradient(rgba(255, 255, 255, 0.863) 0%, rgba(255, 255, 255, 0) 71%, rgba(255, 255, 255, 0) 100%);
+    /* padding: var(--xLargeSpacing); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .textContainer {
+    min-width: 400px;
+    max-width: 700px;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* --- BUTTONS --- */
 a .btn {
@@ -115,4 +308,99 @@ a .btn {
 a .btn:hover {
     background: var(--hoverButtonColor);
     transform: scale(1.1);
+}
+
+button {
+    cursor: pointer;
+}
+
+.likeBtn {
+    border: none;
+    background: rgba(255, 255, 255, 0.719);
+    border-radius: var(--round);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.7rem;
+    color: var(--accentColor);
+}
+
+.likeBtn:hover {
+    background: rgb(255, 255, 255);
+    transform: scale(1.05);
+    transition: .1s;
+}
+
+.filterBtn {
+    background: var(--accentColor);
+    border: none;
+    border-radius: var(--borderRadius);
+    padding: var(--standardSpacing) var(--mediumSpacing);
+    color: var(--backgroundColor);
+    font-size: 1.1rem;
+    margin-bottom: var(--largeSpacing);
+}
+
+.filterBtn:hover {
+    background: var(--hoverButtonColor);
+    transition: .3s;
+
+}
+
+/* --- OPSKRIFT OG ARTIKEL PREVIEW --- */
+.opskriftPreview,
+.artikelPreview {
+    width: 31%;
+    min-height: 320px;
+    position: relative;
+    border-radius: var(--borderRadius);
+}
+
+.opskriftPreview img,
+.artikelPreview img {
+    height: 300px;
+    border-radius: var(--borderRadius);
+    box-shadow: 3px 3px 5px rgba(27, 27, 27, 0.151);
+
+}
+
+.opskriftPreview a,
+.artikelPreview a {
+    text-decoration: none;
+}
+
+.opskriftPreview .metadata {
+    font-weight: 400;
+    font-size: .8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.opskriftPreview h3,
+.artikelPreview h3 {
+    font-size: 1.3rem;
+}
+
+.opskriftPreview:hover,
+.artikelPreview:hover {
+    transform: scale(1.02);
+    transition: .3s;
+}
+
+.artikelPreview img,
+.artikelPreview h3 {
+    margin-bottom: var(--smallSpacing);
+}
+
+/* --- FILTERING-- */
+.kategorier {
+    border-bottom: solid 2px var(--secondaryColor);
+    margin: var(--xLargeSpacing) 0;
+}
+
+.kategorier img {
+    border-radius: var(--round);
+    max-width: 16%;
 }
