@@ -1,5 +1,12 @@
 const opskriftListeContainerEl = document.querySelector(".opskriftListeContainer")
 
+
 if (opskriftListeContainerEl) {
-    fangAlleOpskrifter(opskriftListeContainerEl)
+    hentAlleOpskrifter(opskriftListeContainerEl)
 }
+
+
+toggleEls.forEach(toggle => {
+    toggle.addEventListener("change", () => filterEvents(opskriftListeContainerEl))
+
+})

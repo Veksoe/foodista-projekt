@@ -4,11 +4,11 @@ const udvalgteOpskrifterContainerEl = document.querySelector(".udvalgteOpskrifte
 const nyesteArtiklerContainerEl = document.querySelector(".nyesteArtiklerContainer");
 
 if (nyesteOpskrifterContainerEl) {
-    fangNyesteOpskrifter(3, nyesteOpskrifterContainerEl);
+    hentNyesteOpskrifter(3, nyesteOpskrifterContainerEl);
 }
 if (udvalgteOpskrifterContainerEl) {
-    fangUdvalgteOpskrifter("arstid", "34", "5", udvalgteOpskrifterContainerEl)
+    hentUdvalgteOpskrifter("arstid", "34", "5", udvalgteOpskrifterContainerEl)
 }
 if (nyesteArtiklerContainerEl) {
-    fangNyesteArtikler("3", nyesteArtiklerContainerEl)
+    hentNyesteArtikler("3", nyesteArtiklerContainerEl)
 }
