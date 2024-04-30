@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en"> <!--UPDATE-->
+<html lang="da">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="-"> <!--UPDATE-->
-    <meta name="keywords" content="-"> <!--UPDATE-->
+    <meta name="keywords"
+        content="Den Glade Gane, Opskrifter, Opskrifthjemmeside, Familiemad, Samling af opskrifter, familiemad, børnevenlig mad">
+    <!--UPDATE-->
 
-    <title>Document</title> <!--UPDATE-->
+    <title>Opskrifter - Den Glade Gane</title>
 
-    <link rel="icon" type="image/x-icon" href="./assets/img/"> <!-- UPDATE-->
+    <link rel="icon" type="image/x-icon" href="./assets/img/Logo-fav.png">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -21,36 +23,15 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="./index.html" class="logo"> <img src="./assets/img/Logo-lille.png" alt=""></a></li>
-                <li><a href="./opskrifter.html" class="opskriftDropdown">Opskrifter <i
-                            class="fa-solid fa-chevron-down"></i></a>
 
-                    <ul class="dropdown ">
-                        <li><a href="./opskrifter.html">Morgenmad</a></li>
-                        <li><a href="./opskrifter.html">Frokost</a></li>
-                        <li><a href="./opskrifter.html">Aftensmad</a></li>
-                        <li><a href="./opskrifter.html">Dessert</a></li>
-                        <li><a href="./opskrifter.html">Tilbehør</a></li>
-                        <li><a href="./opskrifter.html">Snack</a></li>
-                    </ul>
-
-                </li>
-                <li><a href="./artikler.html">Artikler</a></li>
-            </ul>
-            <div>
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button><i class="fa-solid fa-heart"></i></button>
-                <button><i class="fa-regular fa-rectangle-list"></i></button>
-                <button><i class="fa-regular fa-user"></i></button>
-            </div>
         </nav>
     </header>
 
     <main>
 
         <section class="hero fullWidth">
-            <img src="./assets/img/mor-og-son-grøntsager.jpg" alt="">
+            <img src="./assets/img/mor-og-son-grøntsager.jpg"
+                alt="Mor og søn der står og laver mad sammen, hvor mor snitter grøntsager og sønnen kigger på ipad">
             <div class="textBackground">
                 <div class="textContainer">
                     <h1>Opskrifter</h1>
@@ -63,31 +44,36 @@
         <section class="filter">
             <div class="kategorier">
                 <a href="./kategorier.html?id=39">
-                    <img src="./assets/img/morgenmad-buffet.jpg" alt="">
+                    <img src="./assets/img/morgenmad-buffet.jpg"
+                        alt="Æg og bacon på en pande, på et bordm ed morgenmadbuffet">
                     <p>Morgenmad</p>
                 </a>
                 <a href="./kategorier.html?id=15">
-                    <img src="./assets/img/frokost-sandwich.jpg" alt="">
+                    <img src="./assets/img/frokost-sandwich.jpg" alt="En sprød sandwich på træ-skærebræt ">
                     <p>Frokost</p>
                 </a>
                 <a href="./kategorier.html?id=17">
-                    <img src="./assets/img/aftensmad-buffet.jpg" alt="">
+                    <img src="./assets/img/aftensmad-buffet.jpg"
+                        alt="Aftensmadbuffet med masser af forskelligt mad og folk der rækker ind over bordet.">
                     <p>Aftensmad</p>
                 </a>
                 <a href="./kategorier.html?id=20">
-                    <img src="./assets/img/dessert-kage.jpg" alt="">
+                    <img src="./assets/img/dessert-kage.jpg"
+                        alt="Chokoladekage med blåbær på toppen på en rød tallerken.">
                     <p>Dessert</p>
                 </a>
                 <a href="./kategorier.html?id=19">
-                    <img src="./assets/img/tilbehør-salat.jpg" alt="">
+                    <img src="./assets/img/tilbehør-salat.jpg"
+                        alt="Farverig salat med ferkner, rødbeder, nødder, ost og salat.">
                     <p>Tilbehør</p>
                 </a>
                 <a href="./kategorier.html?id=21">
-                    <img src="./assets/img/snack-bord.jpg" alt="">
+                    <img src="./assets/img/snack-bord.jpg"
+                        alt="Bord med nachochip, guacamole, ostedip, tomater og chili.">
                     <p>Snack</p>
                 </a>
             </div>
-            <button class="filterBtn">Filtering</button>
+            <button class="filterBtn"><i class="fa-solid fa-filter"></i> Filtering</button>
             <div class="filterContainer hidden">
                 <div class="filterGroup">
                     <h3>Hovedingrediens</h3>
@@ -131,6 +117,121 @@
                     <label class="toggle">
                         <input id="fiskeFilter" type="checkbox" value="25">
                         <span class="tag">Fiskeretter</span>
+                    </label>
+                </div>
+                <div class="filterGroup">
+                    <h3>Årtider</h3>
+                    <label class="toggle">
+                        <input id="efterårFilter" type="checkbox" value="36">
+                        <span class="tag">Efterårsretter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="forårsFilter" type="checkbox" value="33">
+                        <span class="tag">Forårsretter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="sommerFilter" type="checkbox" value="34">
+                        <span class="tag">Sommerretter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="vinterFilter" type="checkbox" value="35">
+                        <span class="tag">Vinterretter</span>
+                    </label>
+                </div>
+                <div class="filterGroup">
+                    <h3>Diæter</h3>
+                    <label class="toggle">
+                        <input id="diabetesFilter" type="checkbox" value="31">
+                        <span class="tag">Dieabetesvenlig retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="laktoseFilter" type="checkbox" value="32">
+                        <span class="tag">Laktosefri retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="vegatarFilter" type="checkbox" value="30">
+                        <span class="tag">Vetariske retter</span>
+                    </label>
+
+                </div>
+                <div class="filterGroup">
+                    <h3>Måltidstyper</h3>
+                    <label class="toggle">
+                        <input id="forretFilter" type="checkbox" value="16">
+                        <span class="tag">Forretter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="hovedretFilter" type="checkbox" value="18">
+                        <span class="tag">Hovedretter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="dessertFilter" type="checkbox" value="20">
+                        <span class="tag">Desserter</span>
+                    </label>
+
+                </div>
+                <div class="filterGroup">
+                    <h3>Temperatur</h3>
+                    <label class="toggle">
+                        <input id="varmtFilter" type="checkbox" value="13">
+                        <span class="tag">Varme retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="koldFilter" type="checkbox" value="12">
+                        <span class="tag">Kolderetter</span>
+                    </label>
+
+                </div>
+                <div class="filterGroup">
+                    <h3>Tilberedningstider</h3>
+                    <label class="toggle">
+                        <input id="lynhurtigtFilter" type="checkbox" value="9">
+                        <span class="tag">Under 30 minutter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="hurtigFilter" type="checkbox" value="10">
+                        <span class="tag">30-60 minutter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="mellemFilter" type="checkbox" value="11">
+                        <span class="tag">1-2 timer</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="langsomFilter" type="checkbox" value="38">
+                        <span class="tag">Over 2 timer</span>
+                    </label>
+                </div>
+                <div class="filterGroup">
+                    <h3>Verdensmad</h3>
+                    <label class="toggle">
+                        <input id="asiasiskFilter" type="checkbox" value="6">
+                        <span class="tag">Asiasiske retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="italienskFilter" type="checkbox" value="7">
+                        <span class="tag">Italienske retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="mellemøstiskFilter" type="checkbox" value="8">
+                        <span class="tag">Mellemøstiske retter</span>
+                    </label>
+
+                    <label class="toggle">
+                        <input id="mexicanskFilter" type="checkbox" value="5">
+                        <span class="tag">Mexicanske retter</span>
                     </label>
                 </div>
             </div>

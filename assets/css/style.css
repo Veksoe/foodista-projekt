@@ -58,6 +58,8 @@ header {
     background-color: var(--backgroundColor);
     height: auto;
     padding: var(--standardSpacing);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.438);
+    z-index: 100;
 }
 
 body {
@@ -82,13 +84,15 @@ i {
 
 .nyesteOpskrifterContainer,
 .udvalgteOpskrifterContainer,
-.nyesteArtiklerContainer {
+.nyesteArtiklerContainer,
+.udvalgteArtiklerContainer {
     display: flex;
     justify-content: center;
     gap: 32px;
 }
 
-.opskriftListeContainer {
+.opskriftListeContainer,
+.artikelListeContainer {
     display: flex;
     justify-content: center;
     gap: 32px;
@@ -111,9 +115,12 @@ h5,
 h6,
 p,
 a,
-label {
+label,
+li {
     grid-column: 2 / -2;
     font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+
 }
 
 h1 {
@@ -165,17 +172,28 @@ h3 {
     font-size: 1.3rem;
     margin: 0px;
     color: var(--baseTextDarkColor);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 
 p {
     margin: 0 0 var(--smallSpacing) 0;
     color: var(--baseTextDarkColor);
+
 }
 
+p,
+li {
+    font-size: 1.2rem;
+}
 
+.breadcrum {
+    color: var(--accentColor);
+}
 
+.breadcrum:hover {
+    color: var(--hoverButtonColor);
+}
 
 
 /* --- NAVIGATION --- */
@@ -189,6 +207,7 @@ nav ul {
     gap: var(--xLargeSpacing);
     list-style: none;
     margin: 0;
+    position: relative;
 }
 
 nav .logo {
@@ -250,6 +269,10 @@ nav .dropdown {
     padding: var(--standardSpacing) var(--xLargeSpacing);
     gap: var(--standardSpacing);
     display: none;
+    z-index: 100;
+    border-radius: var(--borderRadius);
+    top: 50px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.514);
 }
 
 nav .dropdown a {
@@ -258,6 +281,10 @@ nav .dropdown a {
 
 nav .opskriftDropdown:hover .dropdown {
     display: flex;
+}
+
+nav .opskriftDropdown i {
+    margin: var(--smallSpacing);
 }
 
 /* --- HERO --- */
@@ -289,7 +316,7 @@ nav .opskriftDropdown:hover .dropdown {
     min-height: 400px;
 
     background: radial-gradient(rgba(255, 255, 255, 0.863) 0%, rgba(255, 255, 255, 0) 71%, rgba(255, 255, 255, 0) 100%);
-    /* padding: var(--xLargeSpacing); */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -309,26 +336,109 @@ nav .opskriftDropdown:hover .dropdown {
 
 /* --- FOOTER --- */
 footer {
-    height: 40vh;
-    margin-top: var(--xLargeSpacing);
-    background: var(--primaryColor);
-    display: flex;
-    align-items: center;
+    margin-top: 120px;
     padding: var(--standardSpacing) var(--xLargeSpacing);
-    justify-content: space-between;
+
 }
 
 footer img {
-    width: 250px;
-    height: 250px;
+    border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+}
+
+footer .nyhedsbrev .imgContainer {
+    width: 50%;
 }
 
 footer .nyhedsbrev {
-    width: 500px;
-    text-align: center;
-    display: block;
+    display: flex;
+    background: #f4be6683;
+    border-radius: var(--borderRadius);
+    width: 100%;
+    min-height: 80vh;
 }
 
+footer .nyhedsbrev .text {
+    width: 50%;
+    padding: var(--xLargeSpacing) 90px;
+}
+
+footer h2 {
+    text-align: left;
+}
+
+footer .social {
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+    margin: var(--largeSpacing) 30%;
+}
+
+footer .social i:hover {
+    color: var(--hoverButtonColor);
+}
+
+footer .sitemap {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--largeSpacing) 40%;
+}
+
+footer .sitemap a {
+    text-decoration: none;
+    color: var(--accentColor);
+
+}
+
+footer .sitemap a:hover {
+    color: var(--hoverButtonColor);
+}
+
+footer input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: var(--borderRadius);
+    border: 2px solid var(--accentColor);
+    background: rgba(255, 255, 255, 0.562);
+    padding: var(--smallSpacing) var(--largeSpacing);
+    color: var(--accentColor);
+    font-size: 1.3rem;
+}
+
+footer label {
+    color: var(--hoverButtonColor);
+    margin-top: var(--mediumSpacing);
+    display: block;
+
+}
+
+footer button {
+    background: var(--backgroundColor);
+    border-radius: var(--borderRadius);
+    color: var(--accent);
+    border: solid 2px var(--accentColor);
+    padding: var(--standardSpacing) var(--largeSpacing);
+    font-size: 1.2rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.336);
+    width: 100%;
+    margin: var(--mediumSpacing) 0;
+}
+
+footer button:hover {
+    transform: scale(1.03);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.336);
+    transition: .3s;
+}
+
+footer::before {
+    background-color: var(--secondaryColor);
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    width: 100%;
+    top: -90px
+}
 
 /* --- BUTTONS --- */
 a .btn {
@@ -381,8 +491,10 @@ button {
 
 }
 
-/* --- KAROSEL--- */
-.udvalgteOpskrifterContainer {}
+.filterBtn i {
+    color: var(--backgroundColor);
+}
+
 
 /* --- OPSKRIFT OG ARTIKEL PREVIEW --- */
 .opskriftPreview,
@@ -465,6 +577,7 @@ button {
 }
 
 
+
 .kategorier p:after {
     content: "";
     width: 100%;
@@ -519,72 +632,145 @@ input:checked+label {
 .filterGroup {
     display: grid;
     row-gap: var(--smallSpacing);
-    width: 170px;
+    min-width: 170px;
 }
 
-/* --- OPSKRIFT-- */
-.opskriftContainer article {
+/* --- OPSKRIFT OG ARTIKEL-- */
+.opskriftContainer article,
+.artikelContainer article {
     display: grid;
     grid-template-columns: 5% repeat(12, 1fr) 5%;
 }
 
 .opskriftInfo {
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
 }
 
-.opskriftInfo .text {
+.artikelInfo {
+    min-height: 60vh;
+    display: flex;
+
+}
+
+.opskriftInfo .text,
+.artikelInfo .text {
     width: 45%;
-    padding: 90px;
-    /* padding-bottom: 0; */
+    padding: 50px 90px;
     position: relative;
 
 }
 
-.opskriftInfo .text i {
+.opskriftInfo .text i,
+.artikelInfo .text i {
     font-size: 1.6rem;
     color: var(--baseTextDarkColor);
 
 }
 
+.opskriftInfo .text .beskrivelse {
+    margin-bottom: 90px;
+
+}
+
+.artikelIndhold {
+    display: grid;
+    grid-template-columns: 5% repeat(10, 1fr) 5%;
+    margin-top: var(--xLargeSpacing);
+    gap: var(--xLargeSpacing);
+}
+
+.artikelIndhold .indhold {
+    grid-column: 3/7;
+}
+
+.artikelIndhold .billeder {
+    grid-column: 7/-3;
+    display: grid;
+    align-items: center;
+    gap: var(--xLargeSpacing);
+}
+
+.tips {
+    margin-top: var(--xLargeSpacing);
+}
+
+.artikelIndhold .indhold h3 {
+    margin-top: var(--largeSpacing);
+}
+
 .opskriftInfo .imgContainer {
     width: 55%;
     height: 80vh;
+
 }
 
-.opskriftInfo .metadata {
+.artikelInfo .imgContainer {
+    height: 60vh;
+    width: 55%;
+
+}
+
+
+.artikelIndhold .billeder .imgContainer {
+    max-width: 600px;
+    height: 400px;
+}
+
+.artikelIndhold .billeder img,
+.artikelIndhold .billeder iframe {
+    border-radius: var(--borderRadius);
+}
+
+.artikelIndhold .billeder .opskriftPreview {
+    width: 100%;
+
+}
+
+.artikelIndhold .billeder .opskriftPreview img {
+    height: 200px;
+}
+
+.opskriftInfo .metadata,
+.artikelInfo .metadata {
     display: flex;
     font-size: 1.2rem;
-    margin-bottom: var(--largeSpacing);
+    margin-bottom: var(--smallSpacing);
     justify-content: space-between;
 }
 
-.opskriftInfo .opskriftNavn {
+.opskriftInfo .opskriftNavn,
+.artikelInfo .artikelNavn {
     font-family: "Open Sans", sans-serif;
     font-size: 2rem;
     text-align: left;
+    margin: var(--mediumSpacing) 0;
 }
 
-.opskriftInfo .ikoner {
+.opskriftInfo .ikoner,
+.artikelInfo .ikoner {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    bottom: 90px;
+    bottom: 50px;
     left: 90px;
     right: 90px;
 }
 
-.opskriftInfo button {
+.opskriftInfo button,
+.artikelInfo button {
     color: var(--accentColor);
     border: none;
     background: none;
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     align-items: center;
+    gap: var(--smallSpacing);
 }
 
-.opskriftInfo .text button i {
+.opskriftInfo .text button i,
+.artikelInfo .text button i {
     color: var(--accentColor);
     font-size: 2rem;
 
@@ -594,7 +780,7 @@ input:checked+label {
     display: flex;
 }
 
-.opskriftAction .metadata {
+.opskriftAction .data {
     background: #f4be6660;
     width: 45%;
     padding: 90px;
@@ -608,7 +794,8 @@ input:checked+label {
     border: none;
 }
 
-.opskriftAction .tilfojAlle {
+.opskriftAction .tilfojAlle,
+.opskriftAction .antal {
     background: var(--backgroundColor);
     border-radius: var(--borderRadius);
     color: var(--accent);
@@ -636,4 +823,47 @@ input:checked+label {
 .opskriftAction .tilfojEn i {
     color: var(--backgroundColor);
 
+}
+
+.opskriftAction .antal {
+    display: flex;
+    margin: var(--smallSpacing) 0;
+    padding: 0;
+    height: 50px;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.opskriftAction .antal i {
+    margin: var(--standardSpacing);
+}
+
+.opskriftAction .antal span {
+    border-left: solid var(--accentColor) 2px;
+    border-right: solid var(--accentColor) 2px;
+    height: 100%;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.opskriftAction .ingredienser {
+    margin: var(--xLargeSpacing) 0;
+}
+
+.opskriftAction .fremgangsmåde {
+    width: 55%;
+    padding: 90px;
+}
+
+.opskrift ul li {
+    list-style: none;
+    margin: var(--smallSpacing) 0;
+}
+
+.opskrift ol li::marker {
+    color: var(--primaryColor);
+    font-size: 2rem;
+    font-weight: 900;
 }
