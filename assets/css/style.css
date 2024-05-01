@@ -10,15 +10,8 @@
     --secondaryColor: #89B894;
     --accentColor: #D67C61;
     --hoverButtonColor: #b96951;
-    --disableButtonColor: silver;
     --backgroundColor: #F9F4E7;
     --baseTextDarkColor: #050316;
-
-
-
-    /* TEXT  */
-    --titleSizeMobile: 2.5rem;
-    --baseTextSizeMobile: .9rem;
 
     /* SPACING */
     --smallSpacing: 10px;
@@ -30,7 +23,6 @@
     /* DETAILS */
     --borderRadius: 10px;
     --round: 50%;
-    --shadow: 3px 3px 8px gray;
 }
 
 /* --- UTILLITIES --- */
@@ -45,7 +37,6 @@
 }
 
 .filterContainer.hidden {
-
     display: none;
 }
 
@@ -75,8 +66,6 @@ main {
 section {
     grid-column: 2/-2;
 }
-
-
 
 i {
     color: var(--accentColor);
@@ -116,7 +105,8 @@ h6,
 p,
 a,
 label,
-li {
+li,
+select {
     grid-column: 2 / -2;
     font-family: "Open Sans", sans-serif;
     line-height: 1.6;
@@ -144,7 +134,7 @@ h2 {
     overflow: hidden;
 }
 
-/* TILFØJ LINJER PÅ BEGGE SIDER AF EN OVERSKRIFT */
+/* TILFØJ LINJER PÅ BEGGE SIDER AF HVAD DEN BLIVER SAT PÅ */
 .lineDetail::before,
 .lineDetail::after {
     background-color: var(--secondaryColor);
@@ -175,11 +165,9 @@ h3 {
     font-weight: 500;
 }
 
-
 p {
     margin: 0 0 var(--smallSpacing) 0;
     color: var(--baseTextDarkColor);
-
 }
 
 p,
@@ -264,15 +252,16 @@ nav button:hover {
 nav .dropdown {
     position: absolute;
     flex-direction: column;
-    background-color: #F4BE66;
-    width: 200px;
-    padding: var(--standardSpacing) var(--xLargeSpacing);
+    background-color: #f6d9a4;
+
+    padding: var(--standardSpacing) var(--smallSpacing);
     gap: var(--standardSpacing);
     display: none;
     z-index: 100;
     border-radius: var(--borderRadius);
     top: 50px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.514);
+    padding-inline-start: var(--smallSpacing)
 }
 
 nav .dropdown a {
@@ -287,6 +276,20 @@ nav .opskriftDropdown i {
     margin: var(--smallSpacing);
 }
 
+nav .dropdown img {
+    border-radius: var(--round);
+    width: 40px;
+    margin-right: var(--smallSpacing);
+}
+
+nav .dropdown a {
+    justify-content: left;
+}
+
+nav .dropdown a:after {
+    width: 90%;
+}
+
 /* --- HERO --- */
 
 .hero video,
@@ -298,7 +301,6 @@ nav .opskriftDropdown i {
 
 .hero h1 {
     font-size: 5rem;
-
 }
 
 .hero h2 {
@@ -312,8 +314,8 @@ nav .opskriftDropdown i {
     position: absolute;
     text-align: center;
     width: 80%;
-    min-width: 800px;
-    min-height: 400px;
+    min-width: 900px;
+    height: 100%;
 
     background: radial-gradient(rgba(255, 255, 255, 0.863) 0%, rgba(255, 255, 255, 0) 71%, rgba(255, 255, 255, 0) 100%);
 
@@ -338,7 +340,6 @@ nav .opskriftDropdown i {
 footer {
     margin-top: 120px;
     padding: var(--standardSpacing) var(--xLargeSpacing);
-
 }
 
 footer img {
@@ -525,8 +526,6 @@ button {
     justify-content: space-between;
 }
 
-
-
 .opskriftPreview:hover,
 .artikelPreview:hover {
     transform: scale(1.02);
@@ -562,7 +561,6 @@ button {
 
 .kategorier a {
 
-    width: 150px;
     text-align: center;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -576,8 +574,6 @@ button {
     position: relative;
 }
 
-
-
 .kategorier p:after {
     content: "";
     width: 100%;
@@ -589,6 +585,10 @@ button {
     transition: transform 0.2s ease-in;
 }
 
+.kategorier p.active:after {
+    transform: scaleX(1);
+}
+
 .kategorier a:hover p::after {
     transform: scaleX(1);
 }
@@ -596,7 +596,6 @@ button {
 .kategorier a p.active::after {
     content: "";
     transform: scaleX(1);
-
 }
 
 .kategorier input {
@@ -650,7 +649,6 @@ input:checked+label {
 .artikelInfo {
     min-height: 60vh;
     display: flex;
-
 }
 
 .opskriftInfo .text,
@@ -658,19 +656,16 @@ input:checked+label {
     width: 45%;
     padding: 50px 90px;
     position: relative;
-
 }
 
 .opskriftInfo .text i,
 .artikelInfo .text i {
     font-size: 1.6rem;
     color: var(--baseTextDarkColor);
-
 }
 
 .opskriftInfo .text .beskrivelse {
     margin-bottom: 90px;
-
 }
 
 .artikelIndhold {
@@ -708,9 +703,7 @@ input:checked+label {
 .artikelInfo .imgContainer {
     height: 60vh;
     width: 55%;
-
 }
-
 
 .artikelIndhold .billeder .imgContainer {
     max-width: 600px;
@@ -773,7 +766,6 @@ input:checked+label {
 .artikelInfo .text button i {
     color: var(--accentColor);
     font-size: 2rem;
-
 }
 
 .opskriftAction {
@@ -866,4 +858,21 @@ input:checked+label {
     color: var(--primaryColor);
     font-size: 2rem;
     font-weight: 900;
+}
+
+.sorter select {
+    border-radius: var(--borderRadius);
+    height: 50px;
+    width: 200px;
+    background: var(--accentColor);
+    color: var(--backgroundColor);
+    border: none;
+    padding: var(--smallSpacing) var(--standardSpacing);
+    font-size: 1.1rem;
+    margin: 0 var(--standardSpacing) var(--standardSpacing) var(--standardSpacing);
+}
+
+.sorter option {
+    background: var(--backgroundColor);
+    color: var(--accentColor);
 }
